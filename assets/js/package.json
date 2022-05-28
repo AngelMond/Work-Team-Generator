@@ -9,6 +9,7 @@
   "author": "Angel Mondragon",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "inquirer": "^8.2.4"
   }
 }
