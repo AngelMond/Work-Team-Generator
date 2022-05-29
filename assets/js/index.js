@@ -36,8 +36,19 @@ inquirer
     }
     
   ])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
+  .then((userAnswer) => {
+    switch(userAnswer.ListOptions){
+        case 'Add an Engineer':
+            engineer();
+        break;
+
+        case 'Add an Intern':
+            intern();
+            break;
+        case 'Finish':
+
+        //ANADIR FUNCION PARA TERMINAR
+    }
   })
   .catch((error) => {
     if (error.isTtyError) {
@@ -47,16 +58,63 @@ inquirer
     }
   });
 
+  
   function engineer(){
     inquirer
     .prompt([
-      /* Pass your questions in here */
   
       {
           type: 'input',
-          name: 'ManagersName',
-          message: 'Please enter the Managers name',
+          name: 'engineerName',
+          message: `Please enter the Engineer's name`,
+      },
+      {
+        type: 'input',
+        name: 'engineerId',
+        message: `Please enter the engineer's name`,
+      },
+      {
+        type: 'input',
+        name: 'engineerEmail',
+        message: `Enter the engineer's email address`,
+      },
+      {
+        type: 'input',
+        name: 'gitHubUsername',
+        message: `Please enter the engineer's github username`,
       }
     ])
 
   }
+
+
+  function intern(){
+    inquirer
+    .prompt([
+  
+      {
+          type: 'input',
+          name: 'internName',
+          message: `Please enter the intern's ID`,
+      },
+      {
+        type: 'input',
+        name: 'internId',
+        message: `Please enter the intern's name`,
+      },
+      {
+        type: 'input',
+        name: 'internEmail',
+        message: `Enter the intern's email address`,
+      },
+      {
+        type: 'input',
+        name: 'school',
+        message: `Please enter the intern's school name`,
+      }
+    ])
+
+  }
+
+  
+ 
