@@ -59,7 +59,10 @@ function addTeamMembers(){
 //THIS FUNCTION RUNS WHEN USER INITIALIZE THE PROGRAM, AND ASKS ABOUT MANAGERS INFO
 function manager(){
 
-  console.log('Welcome!')
+  console.log(' ----------------------------------------------');
+  console.log('|   WELCOME TO THIS TEAM PROFILE GENERATOR     |');
+  console.log(' ----------------------------------------------');
+  
   inquirer
     .prompt([
   
