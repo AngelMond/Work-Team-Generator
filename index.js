@@ -337,7 +337,7 @@ function intern(){
   let GeneratedHTML = HTML(writeManagerHTML, writeEngineerHTML, writeInternHTML ).replace(/[,]/g, ' ');
   
   //Write HTML 
-  fs.writeFile('index.html', GeneratedHTML, (err)=>err? console.log(err): console.log('HTML generated successfully '))
+  fs.writeFile('sample.html', GeneratedHTML, (err)=>err? console.log(err): console.log('HTML generated successfully '))
    
  }
 
