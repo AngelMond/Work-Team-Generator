@@ -20,3 +20,7 @@
 
 # Challenges
 * It is amazing how you can modularize the code in different modules so you can have a more clean code, so, it was a little tricky learn how you can divide the code in the different modules and how it's the best way to do it. Also I love to work with OPP, a think it allows us to reutilize our code every time we need to, and it's amazing how much code we save to write or re-write. The TDD part is always important, I'm learning how to to TDD and I think it push you  not  only to develop a much clean and mantainable code but to develop your logic as every good developer.
+
+# Link to Video!
+* In the video I can show you the functionality of the program, passing the TDD, the user interaction from the command line and the generated HTML were you'll see the entire generated Team.
+<div><a href="https://drive.google.com/file/d/1IWsJD5SrcSe860GGGt1Sfr5R6XilepM7/view">Video Here!</a></div>
