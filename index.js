@@ -1,7 +1,13 @@
 //Importing libraries
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { resolve } = require('path');
+
+
+//Importing my HTML templates
+const HTML = require('./src/htmlTemplate')
+const managerHTML = require('./src/managerHTML');
+const engineerHTML = require('./src/engineerHTML');
+const internHTML = require('./src/internHTML');
 
 //Importing my classes to create an object for each employee the user will add
 const Manager = require('./lib/manager');
@@ -13,6 +19,11 @@ const Intern = require('./lib/intern');
 const managerArray = [];
 const engineersArray = [];
 const internsArray = [];
+
+//Empty arrays to store HTML for each team member
+const writeManagerHTML = [];
+const writeEngineerHTML = [];
+const writeInternHTML = [];
 
 //FUNCTION WHERE USER WILL CHOOSE TO ADD MORE TEAM MEMBERS
 function addTeamMembers(){
@@ -95,9 +106,7 @@ function manager(){
       if (err) {
         
         console.log('Ups! Sorry, something went wrong when adding a Manager ');
-      } //else {
-        
-     // }
+      } 
     });
 }
   
@@ -149,7 +158,6 @@ function engineer(){
     })
   }
 
-
 //FUNCTION TO ADD AN INTERN
 function intern(){
     inquirer
@@ -195,30 +203,56 @@ function intern(){
     })
   }
   
+
  function finishedTeam(){
 
-  // console.log(managerArray)
-  // console.log(engineersArray)
-  // console.log(internsArray)
+  //Getting managers name, id etc from array
+  for(let i of managerArray){
+    const name = i.name;
+    const id = i.id;
+    const email = i.email;
+    const officeNumber = i.officeNumber;
+   
+    //Adding engineers info to my HTML template
+    let  htmlManager = managerHTML(name, id, email, officeNumber);
+    //Pushing HTML into an empty array
+    writeManagerHTML.push(htmlManager);
+  }
 
-
+  //Getting engineers name, id etc from array
   for(let i of engineersArray){
     const name = i.name;
     const id = i.id;
     const email = i.email;
     const github = i.githubUsername;
    
-
-    const engineerHTML = `
-    `
+    //Adding engineers info to my HTML template
+    let htmlEngineer = engineerHTML(name, id, email, github);
+    
+    //Pushing HTML into an empty array
+    writeEngineerHTML.push(htmlEngineer);
   }
-//   const writeHTML =`
 
-//    `;
-//   fs.writeFile('index.html', writeHTML, (err)=>err? console.log(err): console.log('HTML Successfully created'))
+   //Getting interns name, id etc from array
+  for(let i of internsArray){
+    const name = i.name;
+    const id = i.id;
+    const email = i.email;
+    const school = i.school;
+   
+    //Adding engineers info to my HTML template
+    let htmlIntern = internHTML(name, id, email, school);
+
+    //Pushing HTML into an empty array 
+    writeInternHTML.push(htmlIntern);
+  }
+  //Add my HTML parts to the main Template
+  let GeneratedHTML = HTML(writeManagerHTML, writeEngineerHTML, writeInternHTML ).replace(/[,]/g, ' ');
+  
+  //Write HTML 
+  fs.writeFile('index.html', GeneratedHTML, (err)=>err? console.log(err): console.log('HTML generated successfully '))
    
  }
-
 
   //INITIALIZE PROGRAM
   manager();
