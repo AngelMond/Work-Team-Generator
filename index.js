@@ -208,10 +208,10 @@ function intern(){
 
   //Getting managers name, id etc from array
   for(let i of managerArray){
-    const name = i.name;
-    const id = i.id;
-    const email = i.email;
-    const officeNumber = i.officeNumber;
+    let name = i.name;
+    let id = i.id;
+    let email = i.email;
+    let officeNumber = i.officeNumber;
    
     //Adding engineers info to my HTML template
     let  htmlManager = managerHTML(name, id, email, officeNumber);
@@ -221,10 +221,10 @@ function intern(){
 
   //Getting engineers name, id etc from array
   for(let i of engineersArray){
-    const name = i.name;
-    const id = i.id;
-    const email = i.email;
-    const github = i.githubUsername;
+    let name = i.name;
+    let id = i.id;
+    let email = i.email;
+    let github = i.githubUsername;
    
     //Adding engineers info to my HTML template
     let htmlEngineer = engineerHTML(name, id, email, github);
@@ -235,10 +235,10 @@ function intern(){
 
    //Getting interns name, id etc from array
   for(let i of internsArray){
-    const name = i.name;
-    const id = i.id;
-    const email = i.email;
-    const school = i.school;
+    let name = i.name;
+    let id = i.id;
+    let email = i.email;
+    let school = i.school;
    
     //Adding engineers info to my HTML template
     let htmlIntern = internHTML(name, id, email, school);
@@ -246,7 +246,7 @@ function intern(){
     //Pushing HTML into an empty array 
     writeInternHTML.push(htmlIntern);
   }
-  //Add my HTML parts to the main Template
+  //Add my HTML parts to the main Template and cleaning the commas
   let GeneratedHTML = HTML(writeManagerHTML, writeEngineerHTML, writeInternHTML ).replace(/[,]/g, ' ');
   
   //Write HTML 
