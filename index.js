@@ -70,21 +70,49 @@ function manager(){
           type: 'input',
           name: 'managersName',
           message: `Please enter the Manager's name`,
+          validate: name =>{
+            if(name){
+              return true;
+            } else { 
+              console.log(`Please enter the Manager's name`)
+            }
+          }
       },
       {
           type: 'input',
           name: 'managersId',
-          message: `Enter the Managers's ID` ,
+          message: `Enter the Managers's ID`,
+          validate: id =>{
+            if(Number(id)){
+              return true;
+            }else if(isNaN(id) || id === ' ') {
+              console.log('The Id must be a number')
+            }
+          }
       },
       {
           type: 'input',
           name: 'managersEmail',
           message: `Please enter the Manager's email address`,
+          validate: email=>{
+            if(email){
+              return true;
+            }else{
+              console.log(`Please enter the Manager's email`)
+            }
+          }
       },
       {
           type: 'input',
           name: 'officeNumber',
           message: `Please enter the Manager's office number`,
+          validate: officeNumber =>{
+            if(Number(officeNumber)){
+              return true;
+            }else if(isNaN(officeNumber) || id === ' ') {
+              console.log('The office number must be a number')
+            }
+          }
       }
       
     ])
@@ -121,21 +149,49 @@ function engineer(){
         type: 'input',
         name: 'engineersName',
         message: `Please enter the Engineer's name`,
+        validate: name =>{
+          if(name){
+            return true;
+          } else { 
+            console.log(`Please enter the Engineer's name`)
+          }
+        }
       },
       {
         type: 'input',
         name: 'engineersId',
         message: `Please enter the engineer's Id`,
+        validate: id =>{
+          if(Number(id)){
+            return true;
+          }else if(isNaN(id) || id === ' ') {
+            console.log('The Id must be a number')
+          }
+        }
       },
       {
         type: 'input',
         name: 'engineersEmail',
         message: `Enter the engineer's email address`,
+        validate: email=>{
+          if(email){
+            return true;
+          }else{
+            console.log(`Please enter the Engineer's  email`)
+          }
+        }
       },
       {
         type: 'input',
         name: 'githubUsername',
         message: `Please enter the engineer's github username`,
+        validate: github=>{
+          if(github){
+            return true;
+          }else{
+            console.log(`Please enter a github username`)
+          }
+        }
       },
 
     ]).then((input)=>{
@@ -169,21 +225,49 @@ function intern(){
           type: 'input',
           name: 'internsName',
           message: `Please enter the intern's name`,
+          validate: name =>{
+            if(name){
+              return true;
+            } else { 
+              console.log(`Please enter the Intern's name`)
+            }
+          }
       },
       {
         type: 'input',
         name: 'internsId',
         message: `Please enter the intern's Id`,
+        validate: id =>{
+          if(Number(id)){
+            return true;
+          }else if(isNaN(id) || id === ' ') {
+            console.log('The Id must be a number')
+          }
+        }
       },
       {
         type: 'input',
         name: 'internsEmail',
         message: `Enter the intern's email address`,
+        validate: email=>{
+          if(email){
+            return true;
+          }else{
+            console.log(`Please enter the Engineer's  email`)
+          }
+        }
       },
       {
         type: 'input',
         name: 'school',
         message: `Please enter the intern's school name`,
+        validate: school=>{
+          if(school){
+            return true;
+          }else{
+            console.log(`Please enter the school's name`)
+          }
+        }
       }
     ]).then((input)=>{
         switch(input.school){
