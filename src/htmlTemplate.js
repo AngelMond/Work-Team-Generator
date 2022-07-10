@@ -1,8 +1,5 @@
 
 
-const managerHTML = require('./managerHTML');
-const engineerHTML = require('./engineerHTML');
-const internHTML = require('./internHTML');
 
 
 const HTML = ((managerHTML, engineerHTML, internHTML)=>{
